@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.kobe.matrix.GalleryView
+        android:id="@+id/galleryView"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:padding="1dp" >
+        <ImageView 
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:src="#e57373"/>
+        <ImageView 
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:src="#00bcd4"/>
+        <ImageView 
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:src="#4caf50"/>
+        <ImageView 
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:src="#9c27b0"/>
+        <ImageView 
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:src="#e91e63"/>
+    </com.kobe.matrix.GalleryView>
+
+</RelativeLayout>
