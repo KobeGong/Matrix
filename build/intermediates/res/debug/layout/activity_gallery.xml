@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#e0e0e0">
+
+    <com.kobe.matrix.GalleryView
+        android:id="@+id/galleryView"
+        android:layout_width="match_parent"
+        android:layout_marginTop="16dp"
+        android:layout_height="400dp"
+        android:padding="1dp">
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:src="@drawable/img1"
+            android:scaleType="fitXY"
+            android:padding="4dp"
+            android:background="@android:color/white"/>
+        <ImageView 
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:src="@drawable/img2"
+            android:scaleType="fitXY"
+            android:padding="4dp"
+            android:background="@android:color/white"/>
+        <ImageView 
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:src="@drawable/img3"
+            android:scaleType="fitXY"
+            android:padding="4dp"
+            android:background="@android:color/white"/>
+        <ImageView 
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:src="@drawable/img4"
+            android:scaleType="fitXY"
+            android:padding="4dp"
+            android:background="@android:color/white"/>
+        <ImageView 
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:src="@drawable/img5"
+            android:scaleType="fitXY"
+            android:padding="4dp"
+            android:background="@android:color/white"/>
+    </com.kobe.matrix.GalleryView>
+
+</RelativeLayout><!-- From: file:/Users/kobe-mac/MyAndroid/Matrix/res/layout/activity_gallery.xml -->

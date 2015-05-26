@@ -23,7 +23,7 @@ import android.view.animation.Transformation;
 import android.widget.EdgeEffect;
 import android.widget.OverScroller;
 
-public class GalleryView extends ViewGroup implements OnHierarchyChangeListener {
+public class GalleryView extends ViewGroup implements OnHierarchyChangeListener, View.OnClickListener  {
 
 	private static final int INVALID_POINTER = -1;
 	private int mWidth, mHeight;
@@ -47,6 +47,8 @@ public class GalleryView extends ViewGroup implements OnHierarchyChangeListener 
 	private EdgeEffect mEdgeGlowTop;
 	private EdgeEffect mEdgeGlowBottom;
 	private Integer[] drawOrder;
+
+    private OnItemClickListener itemClickListener;
 
 	private int duration = 500;
 
@@ -527,18 +529,15 @@ public class GalleryView extends ViewGroup implements OnHierarchyChangeListener 
 		transformationCamera.restore();
 	}
 
-	// 获取父控件中心点 X 的位置
 	protected int getCenterOfCoverflow() {
 		return ((getWidth() - getPaddingLeft() - getPaddingRight()) >> 1)
 				+ getPaddingLeft();
 	}
 
-	// 获取 child 中心点 X 的位置
 	protected int getCenterOfView(View view) {
 		return view.getLeft() + (view.getWidth() >> 1);
 	}
 
-	// 计算 child 偏离 父控件中心的 offset 值， -1 <= offset <= 1
 	protected float calculateOffsetOfCenter(View view) {
 		final int pCenter = getCenterOfCoverflow();
 		final int cCenter = getCenterOfView(view);
@@ -581,11 +580,13 @@ public class GalleryView extends ViewGroup implements OnHierarchyChangeListener 
 	@Override
 	public void onChildViewAdded(View parent, View child) {
 		calculateOrder();
+        child.setOnClickListener(this);
 	}
 
 	@Override
 	public void onChildViewRemoved(View parent, View child) {
 		calculateOrder();
+        child.setOnClickListener(null);
 	}
 
 	private int curRotation = 0;
@@ -660,4 +661,15 @@ public class GalleryView extends ViewGroup implements OnHierarchyChangeListener 
 		});
 		prevAnim.start();
 	}
+
+    public void setOnItemClickListener(OnItemClickListener listener){
+        this.itemClickListener = listener;
+    }
+
+    @Override
+    public void onClick(View view) {
+        int position = indexOfChild(view);
+        if(itemClickListener != null)
+            itemClickListener.onItemClick(this, view, position);
+    }
 }

@@ -1,0 +1,2 @@
+/Users/kobe-mac/MyAndroid/Matrix/build/intermediates/classes/debug
+/Users/kobe-mac/MyAndroid/Matrix/build/intermediates/pre-dexed/debug/android-support-v4-3125a0baf2ebeee904314151c8f4165c125a7739.jar

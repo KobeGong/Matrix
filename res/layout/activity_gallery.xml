@@ -2,33 +2,50 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="#e0e0e0">
 
     <com.kobe.matrix.GalleryView
         android:id="@+id/galleryView"
         android:layout_width="match_parent"
+        android:layout_marginTop="16dp"
         android:layout_height="400dp"
-        android:padding="1dp" >
+        android:padding="1dp">
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:src="@drawable/img1"
+            android:scaleType="fitXY"
+            android:padding="4dp"
+            android:background="@android:color/white"/>
         <ImageView 
             android:layout_width="150dp"
             android:layout_height="200dp"
-            android:src="#e57373"/>
+            android:src="@drawable/img2"
+            android:scaleType="fitXY"
+            android:padding="4dp"
+            android:background="@android:color/white"/>
         <ImageView 
             android:layout_width="150dp"
             android:layout_height="200dp"
-            android:src="#00bcd4"/>
+            android:src="@drawable/img3"
+            android:scaleType="fitXY"
+            android:padding="4dp"
+            android:background="@android:color/white"/>
         <ImageView 
             android:layout_width="150dp"
             android:layout_height="200dp"
-            android:src="#4caf50"/>
+            android:src="@drawable/img4"
+            android:scaleType="fitXY"
+            android:padding="4dp"
+            android:background="@android:color/white"/>
         <ImageView 
             android:layout_width="150dp"
             android:layout_height="200dp"
-            android:src="#9c27b0"/>
-        <ImageView 
-            android:layout_width="150dp"
-            android:layout_height="200dp"
-            android:src="#e91e63"/>
+            android:src="@drawable/img5"
+            android:scaleType="fitXY"
+            android:padding="4dp"
+            android:background="@android:color/white"/>
     </com.kobe.matrix.GalleryView>
 
 </RelativeLayout>

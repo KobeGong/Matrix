@@ -73,38 +73,26 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener{
     }
   
     private void refreshImage() {
-        // 获取待处理的图像
-        
-        // 开始处理图像
-        // 1.获取处理矩阵
-        // 记录一下初始状态。save()和restore()可以将图像过渡得柔和一些。
-        // Each save should be balanced with a call to restore().
+
         camera.save();
         Matrix matrix = new Matrix();
         // rotate
         camera.rotateX(rotateX);
         camera.rotateY(rotateY);
         camera.rotateZ(rotateZ);
-        // translate
-//        int translateY = (int) (100*getResources().getDisplayMetrics().density);
+
         int translateY = 0;
         camera.translate(-translateY, -translateY, translateZ);
         camera.getMatrix(matrix);
-        // 恢复到之前的初始状态。
+
         camera.restore();
        
-        // 设置图像处理的中心点
         matrix.preTranslate(-tmpBit.getWidth() >> 1, -tmpBit.getHeight() >> 1);
         matrix.postTranslate(tmpBit.getWidth() >> 1, tmpBit.getHeight() >> 1);
         matrix.postSkew(skewX, skewY);
-        // matrix.postSkew(skewX, skewY);
-        // 直接setSkew()，则前面处理的rotate()、translate()等等都将无效。
-        // matrix.setSkew(skewX, skewY);
-        // 2.通过矩阵生成新图像(或直接作用于Canvas)
-        Log.d("ANDROID_LAB", "width=" + tmpBit.getWidth() + " height=" + tmpBit.getHeight());
+
         Bitmap newBit = null;
         try {
-            // 经过矩阵转换后的图像宽高有可能不大于0，此时会抛出IllegalArgumentException
             newBit = Bitmap.createBitmap(tmpBit, 0, 0, tmpBit.getWidth(), tmpBit.getHeight(), matrix, true);
         } catch (IllegalArgumentException iae) {
             iae.printStackTrace();
